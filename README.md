@@ -1,5 +1,7 @@
 # Neoris FrontEnd test
 CRUD Client for custom Pokemon API. 
+
+Don't forget to create a `.env` file with a `REACT_APP_API_URL` enviroment variable that is assigned to the API base url. In this case the custom Pokemon API.
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
