@@ -1,13 +1,440 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* variables para el uso recurrente de mismos valores */
+:root {
+  background: #eaf0f7;
+  --primary-color: #6455fc;
+  --primary-color-dark: #463bb0;
+  --primary-color-light: #b2aafe;
+  --cancel-color: #bb0a21;
+  --cancel-color-dark: #96081a;
+  --success-color: #27c46b;
+  --success-color-dark: #1b894b;
+  --input-text-color: #565656;
+  --border-color: #dbdbdb;
+}
+* {
+  box-sizing: border-box;
+  /* border: 1px solid grey; */
+}
+.container {
+  background: #fafafa;
+  margin: 12px auto auto;
+  padding: 4px 32px 12px 32px;
+  width: 700px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 16px;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-dark);
+}
+.btn-secondary {
+  background-color: var(--cancel-color);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 12px 16px;
+}
+.btn-secondary:hover {
+  background-color: var(--cancel-color-dark);
+}
+
+.btn-primary:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.icon-primary {
+  color: var(--primary-color);
+}
+.icon-primary:hover {
+  color: var(--primary-color-dark);
+}
+.icon-cancel {
+  color: var(--cancel-color);
+}
+.icon-cancel-hover {
+  color: var(--cancel-color-dark);
+}
+.icon-green {
+  color: var(--success-color);
+}
+.icon-green:hover {
+  color: var(--success-color-dark);
+}
+.btn-primary i {
+  margin-right: 8px;
+}
+
+table {
+  background: white;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+th {
+  border: 2px solid var(--border-color);
+  font-weight: bold;
+  padding: 4px 12px;
+  width: 20%;
+  height: 36px;
+}
+td {
+  border: 2px solid var(--border-color);
+  text-align: left;
+  padding: 4px 12px;
+  height: 60px;
+}
+td input {
+  width: 100%;
+}
+td img {
+  object-fit: cover;
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  border: 1px solid var(--primary-color-light);
+}
+td img:hover {
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.td-actions {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+.td-actions button {
+  margin: 0 4px;
+}
+.img-container {
+  background: #f1f1fa;
+  border-radius: 4px;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+.td-skeleton-image {
+  background-color: var(--border-color);
+  border-radius: 4px;
+  color: gray;
+  font-size: 24px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4px 12px;
+  width: fit-content;
+}
+.td-no-result {
+  text-align: center;
+  color: var(--input-text-color);
+  background: #fafafa;
+}
+.td-loading {
+  background: #fafafa;
+  color: var(--primary-color-light);
+  font-weight: bold;
+  text-align: center;
+}
+// Loading Table Row -------
+tr.loading {
+  background-image: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 200% 100%;
+  animation: loading 0.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+tr.loading td {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: -30%;
+  }
+  80% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: -200%;
+  }
+}
+tr.loading {
+  background-image: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 200% 100%;
+  animation: loading 0.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+tr.loading td {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0;
+  }
+  50% {
+    background-position: -30%;
+  }
+  80% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: -200%;
+  }
+}
+// Loading Table Row ------- ^
+
+/* FORM ADD POKEMON */
+.form-add-pokemon {
+  /* border: 2px solid var(--cancel-color); */
+  background: white;
+  border-radius: 2px;
+  padding: 12px;
+  width: 100%;
+}
+.form-add-pokemon .title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.action-buttons {
+  margin-bottom: 12px;
+  text-align: center;
+  width: 100%;
+}
+.text-field {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-field label {
+  font-size: 16px;
+  margin-right: 10px;
+  width: 30%;
+}
+.text-field input {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 2px;
+  color: var(--input-text-color);
+  height: 40px;
+  padding: 10px 32px 10px 10px;
+  font-size: 16px;
+  width: 70%;
+}
+.text-edit input {
+  background: #fafafa;
+  border: 1px solid var(--border-color);
+  height: 30px;
+  padding: 6px;
+  font-size: 16px;
+  width: 100%;
+}
+input:hover {
+  outline: none !important;
+  border: 2px solid var(--primary-color-light);
+}
+input:focus {
+  outline: none !important;
+  border: 2px solid var(--primary-color);
+}
+
+label .required {
+  color: var(--cancel-color);
+  margin: 0 4px;
+}
+
+.slider-field {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  padding: 0 12px;
+  width: 100%;
+}
+
+.slider-field label {
+  width: 30%;
+}
+.slider-field p {
+  width: 15%;
+}
+.slider-field input {
+  accent-color: var(--primary-color);
+  width: 40%;
+}
+
+.slider-field input:hover {
+  accent-color: var(--primary-color-dark);
+}
+.slider-edit {
+  padding: 0;
+}
+.slider-edit input {
+  width: 100%;
+}
+.row-action-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+}
+/* 2 columnas  */
+.column {
+  float: left;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+/* limpia después de las columnas */
+.row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* Responsive - las organiza verticalmente cuando no hay suficiente espacio */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* SECTION ACTIONS */
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* SEARCH */
+
+form .inner-form {
+  color: #666;
+  width: 200px;
+}
+
+form .inner-form .input-field {
+  height: 40px;
+  position: relative;
+  width: 100%;
+}
+
+form .inner-form .input-field input {
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 2px;
+  color: var(--input-text-color);
+  display: block;
+  height: 100%;
+  padding: 10px 32px 10px 36px;
+  font-size: 16px;
+  width: 100%;
+}
+form .inner-form .input-field input:hover {
+  border: 2px solid var(--primary-color-light);
+}
+form .inner-form .input-field input:focus {
+  border: 2px solid var(--primary-color);
+}
+
+form .inner-form .input-field input.placeholder {
+  color: #ccc;
+}
+
+form .inner-form .input-field .btn-search {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: -ms-flexbox;
+  font-size: 16px;
+  height: 100%;
+  justify-content: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  position: absolute;
+  width: 40px;
+}
+
+form .inner-form .input-field .btn-search i {
+  color: grey;
+  transition: all 0.2s ease-out, color 0.2s ease-out;
+}
+form .inner-form .input-field .btn-search i:hover {
+  color: var(--primary-color);
+}
+
+/* Loading */
+.lds-dual-ring {
+  display: inline-block;
+  /* border: 1px solid var(--primary-color); */
+  width: 10px;
+  height: 10px;
+  margin-right: 12px;
+  margin-bottom: 2px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

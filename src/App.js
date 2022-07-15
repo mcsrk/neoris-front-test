@@ -1,11 +1,7 @@
-import { MainPage } from "./components/MainPage";
+import Pokemons from "./pages/Pokemons";
 
-function App() {
-  return (
-    <div className="App">
-      <MainPage />
-    </div>
-  );
-}
+const App = () => {
+  return <Pokemons />;
+};
 
 export default App;
