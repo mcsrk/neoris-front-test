@@ -35,7 +35,12 @@ code {
   padding: 4px 32px 12px 32px;
   width: 700px;
 }
-
+.error {
+  text-align: center;
+  padding: 4px;
+  color: var(--cancel-color);
+  border: 1px solid var(--cancel-color);
+}
 .btn-primary {
   background-color: var(--primary-color);
   border: none;

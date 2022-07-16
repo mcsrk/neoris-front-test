@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { deleteRequest, putRequest } from "../axiosClient";
-import { isImage } from "../utils/utils";
 import PokemonImage from "./PokemonImage";
 import SliderField from "./SliderField";
 import TextField from "./TextField";

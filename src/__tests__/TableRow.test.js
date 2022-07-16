@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import Pokemons from "../pages/Pokemons";
-import { isImage } from "../utils/utils";
 
 let container;
 

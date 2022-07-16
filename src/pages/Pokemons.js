@@ -69,6 +69,7 @@ const Pokemons = () => {
   return (
     <div className="container">
       <p>Listado de Pokemon</p>
+      {error && <p className="error">Error cargando los datos. </p>}
       <Actions
         setVisibleForm={setVisibleForm}
         searchTerm={searchTerm}
